@@ -1,9 +1,4 @@
 const SELECTION = ["rock", "paper", "scissors"];
-// const clickSelection = document.getElementsByClassName("selection");
-
-// clickSelection.addEventListener("click", (e) => {
-//   console.log(clickSelection);
-// });
 
 // returns random SELECTION
 function randomSelection() {
@@ -52,18 +47,18 @@ function determineWinner(playerValue, computerValue) {
     }
   }
 }
-
+// use all functions inside of game() function
 function game() {
   playerPick();
   randomSelection();
   console.log(determineWinner(playerPick(), randomSelection()));
 }
 
-// playRound 5 times
+// loop through game() to play 5 rounds
 function playRound() {
   for (let i = 0; i < 5; i++) {
     game();
   }
 }
-
+// use the function!
 playRound();

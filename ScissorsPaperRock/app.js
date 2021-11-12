@@ -1,17 +1,24 @@
-let SELECTION = ["rock", "paper", "scissors"];
+const SELECTION = ["rock", "paper", "scissors"];
+// const clickSelection = document.getElementsByClassName("selection");
 
+// clickSelection.addEventListener("click", (e) => {
+//   console.log(clickSelection);
+// });
+
+// returns random SELECTION
 function randomSelection() {
   const computerNumber = Math.floor(Math.random() * SELECTION.length);
   const computerChoice = SELECTION[computerNumber];
   return computerChoice;
 }
-
+// returns players selection
 function playerPick() {
   let playerChoice = "rock";
   return playerChoice;
 }
-
+//storing players choice
 const playValue = playerPick();
+//storing computers choice
 const computerValue = randomSelection();
 
 function determineWinner(playerValue, computerValue) {
@@ -46,6 +53,17 @@ function determineWinner(playerValue, computerValue) {
   }
 }
 
-console.log(playValue);
-console.log(computerValue);
-console.log(determineWinner(playValue, computerValue));
+function game() {
+  playerPick();
+  randomSelection();
+  console.log(determineWinner(playerPick(), randomSelection()));
+}
+
+// playRound 5 times
+function playRound() {
+  for (let i = 0; i < 5; i++) {
+    game();
+  }
+}
+
+playRound();

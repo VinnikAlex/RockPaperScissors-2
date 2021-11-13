@@ -8,9 +8,17 @@ let winner = "";
 
 let playerScore = document.querySelector(".player-score");
 let computerScore = document.querySelector(".computer-score");
-
 let playerCount = 0;
 let computerCount = 0;
+
+let playerEmoji = document.querySelector(".result-selection-winner");
+let computerEmoji = document.querySelector(".result-selection");
+
+const emojis = [
+  { name: "rock", emoji: "✊" },
+  { name: "paper", emoji: "✋" },
+  { name: "scissors", emoji: "✌️" },
+];
 
 updateScore();
 updateWinner();
@@ -30,6 +38,18 @@ pick.forEach((button) => {
 
     // passing player and computer choice variables to check who wins
     console.log(determineWinner(playValue, compValue));
+
+    // display users emoji choice
+    for (let i = 0; i < emojis.length; i++) {
+      if (clicked === emojis[i].name) {
+        playerEmoji.innerHTML = emojis[i].emoji;
+      }
+    }
+    for (let k = 0; k < emojis.length; k++) {
+      if (compValue === emojis[k].name) {
+        computerEmoji.innerHTML = emojis[k].emoji;
+      }
+    }
   });
 });
 
@@ -59,8 +79,10 @@ function determineWinner(playerValue, computerValue) {
     } else {
       winner = "You Lose";
       updateWinner();
+
       computerCount++;
       updateScore();
+
       return "Computer Wins";
     }
   }
@@ -85,7 +107,6 @@ function determineWinner(playerValue, computerValue) {
     if (computerValue === "rock") {
       winner = "You Win";
       updateWinner();
-
       playerCount++;
       updateScore();
       return "You Win!";
@@ -107,22 +128,3 @@ function updateScore() {
 function updateWinner() {
   whoWon.innerHTML = winner;
 }
-
-// console.log(determineWinner(playerPick(), randomSelection()));
-// console.log(playerPick());
-
-// // use all functions prior functions
-// function game() {
-//   playerPick();
-//   randomSelection();
-//   console.log(determineWinner(playerPick(), randomSelection()));
-// }
-
-// // loop through game() to play 5 rounds
-// function playRound() {
-//   for (let i = 0; i < 5; i++) {
-//     game();
-//   }
-// }
-// // use the function!
-// playRound();

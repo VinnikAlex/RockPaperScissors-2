@@ -17,6 +17,17 @@
   transform: scale(1.2);
 }
 
+.who-wins {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.display {
+  text-decoration: underline;
+}
+
 .results {
   margin-top: 1rem;
   font-size: 3rem;
